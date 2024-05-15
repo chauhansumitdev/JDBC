@@ -1,0 +1,46 @@
+JAVA DATABASE CONNECTIVITY
+
+uses jdbc drivers to connect to the DATABASE
+types
+
+jdbc- odbc bridge drivers
+native driver 
+network protocol driver
+thin driver
+
+contains a lot of interfaces and classes
+
+JDBC DRIVER 
+varipus types each with adv and diss adv
+
+CONNECTIVITY
+register the driver class 
+create connection
+create statement
+execute queries
+close conneciot
+
+-- register the driver
+forName() -- public static void forName(String className)throws ClassNotFoundException  
+Class.forName("oracle.jdbc.driver.OracleDriver");  
+
+-- creating the connection object
+Connection con=DriverManager.getConnection(  
+"jdbc:oracle:thin:@localhost:1521:xe","system","password");  
+
+-- create a statement
+Statement stmt=con.createStatement();  
+
+
+-- execute the query
+ResultSet rs=stmt.executeQuery("select * from emp");  
+while(rs.next()){  
+System.out.println(rs.getInt(1)+" "+rs.getString(2));  
+}  
+
+// a normak iteration over the ref rs ResultSet
+
+
+-- close the connection
+con.close();  
+
